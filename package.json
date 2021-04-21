@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "css-loader": "^3.6.0",
+    "masonry-layout": "^4.2.2",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.2",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.7.2",
+    "vue-router": "^3.3.4",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
