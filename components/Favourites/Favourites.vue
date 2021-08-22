@@ -1,5 +1,8 @@
 <template>
   <div class="favourites">
+      <div class="favourites__empty" v-if="empty">
+        <h3>{{empty}}</h3>
+      </div>
       <div v-for="(item,index) in favourites" :key="index" :data-id="index" class="favourites__item">
             <img :src="item.links[0].href" />
             <div class="favourites__description">
@@ -17,14 +20,15 @@
 export default {
   data() {
     return {
-      favourites: []
+      favourites: [],
+      empty: ''
     }  
   },
   mounted() {
     if (localStorage["favourites"]) {
       this.favourites = JSON.parse(localStorage["favourites"]);
     } else {
-      console.log('Nothing here');
+      this.empty = 'Nothing here';
     }
   },
   methods: {
@@ -45,33 +49,35 @@ export default {
     height: 100%;
     flex-direction: column;
     overflow-y: scroll;
-    overflow-x: hidden;
+    h3 {
+      font-family: $second-font;
+      color: $first-color; 
+      margin-bottom: 10px; 
+    }
+    .favourites__empty {
+      margin: 28px 0;
+    }
     .favourites__item {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin: 15px 0;
+      margin: 15px 0; 
       img {
         width: 30%;
         object-fit: contain;
       }
       i {
-        color: #dddcc6;
+        color: $first-color;
         margin-right: 20px;
       }
       .favourites__description {
         margin: 0 20px;
         padding: 0 10px;
         width: 65%;
-        h3 {
-          font-family: 'Orbitron', sans-serif;
-          color: #fffaea; 
-          margin-bottom: 10px; 
-        }
         .favourites__description_text {
           p {
-            font-family: 'Lato', sans-serif;
-            color: #dddcc6;
+            font-family: $first-font;
+            color: $second-color;
             line-height: 1.5;
             font-weight: 400; 
           }

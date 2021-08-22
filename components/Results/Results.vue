@@ -50,19 +50,6 @@ export default {
   height: 100%;
   flex-direction: column;
   overflow-y: scroll;
-  overflow-x: hidden;
-  ::-webkit-scrollbar {
-	  //appearance: none;
-	  width: 5px;
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: rgba(0,0,0,0.5);
-    box-shadow: 0 0 1px rgba(255,255,255,0.5);
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: white;
-  }
   .results__item {
     display: flex;
     flex-direction: row;
@@ -76,12 +63,12 @@ export default {
       padding: 0 10px;
       h3 {
         font-family: $second-font;
-        color: #fffaea;  
+        color: $first-color;  
       }
       .result__description_text {
         p {
           font-family: $first-font;
-          color: #dddcc6;
+          color: $second-color;
           font-weight: 400; 
           margin-top: 10px;
           line-height: 1.5;

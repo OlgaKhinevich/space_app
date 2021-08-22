@@ -38,7 +38,7 @@ export default {
         width: 100%;
         background: rgba(0, 0, 0, 0.60);
         .modal {
-            background-color: #141414;
+            background-color: $bg-color;
             border-radius: 8px;
             padding: 15px;
             min-width: 500px;
@@ -49,9 +49,10 @@ export default {
             transform: translate(-50%, -50%);
             .modal__title {
                 h2 {
-                    color:  #dddcc6;
+                    color:  $first-color;
                     padding: 0 10px;
-                    font-family: 'Lato', sans-serif;
+                    font-family: $second-font;
+                    margin-bottom: 10px;
                 }
             }
             .modal__body {
@@ -59,8 +60,10 @@ export default {
                 flex-direction: column;
                 justify-content: center;
                 padding: 0 10px;
-                color:  #dddcc6;
-                font-family: 'Lato', sans-serif;
+                color: $second-color;
+                font-family: $first-font;
+                line-height: 1.5;
+                text-align: justify;
             }
             .modal__footer {
                 display: flex;
@@ -69,13 +72,13 @@ export default {
                     margin-top: 10px;
                     height: 40px;
                     width: 120px;
-                    background-color: #141414;
-                    border: 2px solid #dddcc6;
+                    background-color: $bg-color;
+                    border: 2px solid $first-color;
                     text-align: center;
                     border-radius: 5px;
-                    font-family: 'Lato', sans-serif;
+                    font-family: $first-font;
                     font-weight: 400; 
-                    color: #dddcc6;
+                    color: $first-color;
                     padding: 2px 0 3px 0;
                     cursor: pointer;
                 }

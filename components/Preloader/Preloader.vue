@@ -45,7 +45,7 @@ export default {
         position: absolute;
         width: 100vw;
         height: 100vh;
-        background-color: #141414;
+        background-color: $bg-color;
         z-index: 3;
         .preloader__stars {
             display: flex;
@@ -60,7 +60,7 @@ export default {
             }
         } 
         @keyframes pulse{
-            0%{ transform: scale(1); color: #fdffe8; }
+            0%{ transform: scale(1); color: $first-color; }
             50%{ transform: scale(0.2); opacity: 0.75; }
             100%{ transform: scale(1); color: #ffeea1;  }
         }

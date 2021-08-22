@@ -144,7 +144,6 @@ export default {
           overflow-scrolling: touch;
         }
         ::-webkit-scrollbar {
-	        //appearance: none;
 	        width: 5px;
         }
         ::-webkit-scrollbar-thumb {

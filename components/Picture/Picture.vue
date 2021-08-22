@@ -71,12 +71,11 @@ export default {
         bottom: 0;
         left: 0;
         position: absolute;
-        font-family: 'Lato', sans-serif;
+        font-family: $first-font;
         background-color: rgba(17, 15, 16, 0.8);
         cursor: pointer;
-        color: #fffaea;
-        //padding: 10px 20px;
-        h3 { font-family: 'Orbitron', sans-serif; }
+        color: $first-color;
+        h3 { font-family: $second-font; }
         .picture__description_title {
           display: flex;
           margin: 15px 25px;
@@ -85,7 +84,7 @@ export default {
         .picture__description_text { 
           display: block; 
           p { 
-            color: #c0bca8;
+            color: $second-color;
             font-weight: 400; 
             margin: 15px 25px;
             text-align: justify;
