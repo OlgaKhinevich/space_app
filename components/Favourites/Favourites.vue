@@ -8,7 +8,7 @@
             <div class="favourites__description">
               <h3>{{item.data[0].title}}</h3>
               <div class="favourites__description_text">
-                <p>{{item.data[0].description}}</p>
+                <p v-html="item.data[0].description"></p>
               </div>
             </div>
             <i class="fas fa-trash" @click="removeFromFavourites"></i>      
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import {getFavourites} from '../../static/favourites.js';
+
 export default {
   data() {
     return {
@@ -25,16 +27,12 @@ export default {
     }  
   },
   mounted() {
-    if (localStorage["favourites"]) {
-      this.favourites = JSON.parse(localStorage["favourites"]);
-    } else {
-      this.empty = 'Nothing here';
-    }
+    this.favourites = getFavourites();
+    if(!this.favourites.length) this.empty = 'Nothing here';
   },
   methods: {
     removeFromFavourites(e) {
       const itemId = e.target.closest(".favourites__item").dataset.id;
-      this.$store.commit('results/changeIsFavourite', itemId);
       this.favourites.splice(itemId, 1);
       localStorage["favourites"] = JSON.stringify(this.favourites);
     }
@@ -49,6 +47,7 @@ export default {
     height: 100%;
     flex-direction: column;
     overflow-y: scroll;
+    overflow-x: hidden;
     h3 {
       font-family: $second-font;
       color: $first-color; 
@@ -79,7 +78,8 @@ export default {
             font-family: $first-font;
             color: $second-color;
             line-height: 1.5;
-            font-weight: 400; 
+            font-weight: 400;
+            
           }
         }
       }

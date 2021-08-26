@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import {getFavourites, wrapWithFavourites, getHistory} from '../../static/favourites.js';
 
 export default {
   data() {
@@ -58,15 +59,16 @@ export default {
           const data = await response.json();
           const spaceData = data.collection.items;
           const newData = spaceData.filter((item) => item.data[0].media_type == "image");
-          this.$store.commit('results/setResults', newData);
-          let mass = JSON.parse(localStorage["history"]);
+          this.$store.commit('results/setResults', wrapWithFavourites(newData));
+          const mass = getHistory();
           mass.push(this.spaceTerm);
           localStorage["history"] = JSON.stringify(mass);
           this.$router.push('/results');
       } catch(err) {
           console.log(err);
       }
-    }
+    },
+
   }
 }
 </script>
@@ -141,7 +143,7 @@ export default {
         &:hover{
           overflow-y: auto;
           overflow-x: hidden;
-          overflow-scrolling: touch;
+          //overflow-scrolling: touch;
         }
         ::-webkit-scrollbar {
 	        width: 5px;
